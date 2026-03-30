@@ -454,61 +454,6 @@ All text uses `'Noto Sans', sans-serif` — never any other font.
 
 - All UI text in **Hindi** by default unless specified
 - Numbers always in **Western Arabic** (0–9), never Devanagari numerals
-- Hindi scores: "स्कोर", "जीवन", "समय", "राउंड", "स्तर"
-- Hindi CTAs: "खेल शुरू करें", "फिर खेलें", "होम पर जाएं", "जारी रखें", "खेल जारी रखें"
-
----
-
-## 13. Game Loop Patterns
-
-### Quiz Game pattern
-```
-landing → game (Q1→Q2→Q3→Q4→Q5, auto-advance on answer) → result
-```
-- Auto-advance after 1000ms delay showing correct/wrong
-- No manual "Next" button
-- Progress bar fills per question
-
-### Word Search pattern
-```
-landing → game (drag to select, LR or TB only) → result
-```
-- `pointerdown` / `pointerenter` / `pointerup` for drag
-- Only straight lines (same row OR same col, forward only)
-- Green flash on correct, red flash on wrong, 400ms then clear
-
-### Endless Runner pattern
-```
-landing → game (tap/space to jump, auto-scroll) → result
-```
-- `requestAnimationFrame` loop
-- Gravity constant + velocity for jump physics
-- Score = frame count / divisor
-
-### Dodge Game pattern
-```
-landing → game (left/right movement, falling obstacles) → result
-```
-- AABB collision detection
-- Invincibility frames after hit (robot blinks)
-- Particle explosion on collision
-- Lives system with heart icons
-
-### Board Game (Tic Tac Toe) pattern
-```
-landing → game (click cell, AI responds) → result (auto, no button)
-→ "फिर खेलें" returns to game screen with reset board (scores persist)
-```
-- 3 difficulty levels: Easy / Medium / Hard
-  - **Easy**: 25% smart moves, 75% random
-  - **Medium**: smart moves with 22% random imperfection (recommended default)
-  - **Hard**: pure minimax — unbeatable
-- Smart move priority: Win → Block → Center → Corner (shuffled) → Edge
-- **Draw rule**: after a draw, computer starts first in the next round
-- Scores persist across all rounds within a session
-- Win cells highlighted with `winPop` animation
-- Result shown after 700ms delay
-- AI move delay: 300–600ms random (human-like)
 
 ---
 
@@ -578,12 +523,7 @@ Draw order (back to front):
 
 ## 17. File Output
 
-- Single `.html` file, self-contained
-- No external JS libraries
-- No external CSS frameworks
 - `@import` Google Fonts for Noto Sans only
-- Canvas-based games: inline `<canvas>` + JS
-- DOM-based games: inline HTML + CSS + JS
 
 ---
 
