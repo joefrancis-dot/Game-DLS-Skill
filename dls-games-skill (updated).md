@@ -20,12 +20,12 @@ Fetch each file from its GitHub URL before starting any game. Always retrieve th
 
 | File | GitHub URL | What it governs |
 |------|------------|----------------|
-| `dls-typography.md`   | https://github.com/joefrancis-dot/Game-DLS-Skill/raw/refs/heads/main/dls-typography.md | Font family, sizes, weights, line-heights |
-| `dls-colors.md`       | https://github.com/joefrancis-dot/Game-DLS-Skill/raw/refs/heads/main/dls-colors.md | All color tokens — base + 10 themes |
-| `dls-icons.md`        | https://github.com/joefrancis-dot/Game-DLS-Skill/raw/refs/heads/main/dls-icons.md | 70 exact SVG icons — use verbatim paths only |
-| `dls-illustrations.md`| https://github.com/joefrancis-dot/Game-DLS-Skill/raw/refs/heads/main/dls-illustrations.md | 28 illustrations — use exact SVG paths |
-| `dls-logos.md`        | https://github.com/joefrancis-dot/Game-DLS-Skill/raw/refs/heads/main/dls-logos.md | 15 brand + game logos — use exact SVG paths |
-| `dls-components.md`   | https://github.com/joefrancis-dot/Game-DLS-Skill/raw/refs/heads/main/dls-components.md | Nav Bar, Buttons, Pause Popup, Streak, Pills |
+| `dls-typography.md`   | https://raw.githubusercontent.com/joefrancis-dot/Game-DLS-Skill/main/dls-typography.md | Font family, sizes, weights, line-heights |
+| `dls-colors.md`       | https://raw.githubusercontent.com/joefrancis-dot/Game-DLS-Skill/main/dls-colors.md | All color tokens — base + 10 themes |
+| `dls-icons.md`        | https://raw.githubusercontent.com/joefrancis-dot/Game-DLS-Skill/main/dls-icons.md | 70 exact SVG icons — use verbatim paths only |
+| `dls-illustrations.md`| https://raw.githubusercontent.com/joefrancis-dot/Game-DLS-Skill/main/dls-illustrations.md | 28 illustrations — use exact SVG paths |
+| `dls-logos.md`        | https://raw.githubusercontent.com/joefrancis-dot/Game-DLS-Skill/main/dls-logos.md | 15 brand + game logos — use exact SVG paths |
+| `dls-components.md`   | https://raw.githubusercontent.com/joefrancis-dot/Game-DLS-Skill/main/dls-components.md | Nav Bar, Buttons, Pause Popup, Streak, Pills |
 
 **When to fetch each file:**
 - **Always fetch before starting**: `dls-colors.md`, `dls-typography.md`, `dls-components.md`
@@ -54,7 +54,7 @@ Custom SVG rules:
 
 ## 3. Game Screen Structure
 
-Every game has exactly 3 screens in a single HTML file:
+Every game has exactly 3 screens:
 
 ```
 Screen 1 — Landing
@@ -518,12 +518,6 @@ Draw order (back to front):
 | Theme-colored result icon (circle + checkmark) | Green `#22C55E` tick / Red `#EF4444` cross / Orange `#F97316` draw |
 | Blobs only on landing screen | Blobs persist across all 3 screens via `body::before/after` |
 | `max-width: 390px` for card games | `max-width: 480px` for game wrapper |
-
----
-
-## 17. File Output
-
-- `@import` Google Fonts for Noto Sans only
 
 ---
 
