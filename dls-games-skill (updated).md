@@ -47,7 +47,7 @@ If approved, build them as pixel-art using `<rect>` elements on a consistent gri
 Custom SVG rules:
 - Use only DLS color tokens for fills (e.g. `#BEE95F` for Theme 4, `#000` for primary)
 - Keep shapes simple — pixel-art style using `<rect>`, `<circle>`, `<path>` only
-- Place logo on a **dark gradient background** for contrast against light theme backgrounds (see Section 18)
+- Place logo on a **dark gradient background** for contrast against light theme backgrounds (see Section 17)
 - Document the custom SVG clearly in the code with `<!-- custom, approved -->`
 
 ---
@@ -90,7 +90,7 @@ Structure (top to bottom):
 1. **Logo** — DLS logo or custom approved SVG, centred, 120–160px
 2. **Title** — Display 1 (32px/700), centred
 3. **Subtitle** — Body 1 (18px/400), centred, `color: rgba(0,0,0,0.55)`
-4. **Button Big Solid** — "खेल शुरू करें" + Arrow Forward icon
+4. **Button Big Solid** — CTA label + Arrow Forward icon
 
 ```css
 /* Landing card — transparent, no white bg, no shadow */
@@ -291,9 +291,9 @@ Used in games that can be paused. Always follows this exact structure:
 
 Inner content (in order):
 1. **Timer illustration** (`Timer.svg` from `dls-illustrations.md`) at 48×48px — use exact SVG paths
-2. **Title** — Headline 1: 24px / 600 / black — "आपका खेल रुका हुआ है"
-3. **Subtitle** — Body 1: 18px / 400 / secondary — "खेलने के लिए तैयार?"
-4. **Button Big Solid** — width 240px — "खेल जारी रखें"
+2. **Title** — Headline 1: 24px / 600 / black
+3. **Subtitle** — Body 1: 18px / 400 / secondary
+4. **Button Big Solid** — width 240px
 
 **Do NOT add a hollow/secondary button inside the pause popup.**
 The pause popup has exactly ONE CTA button.
@@ -325,8 +325,8 @@ Structure:
 2. **Session scoreboard** — transparent boxes with `rgba(255,255,255,0.25)` bg
 3. **Title** — Headline 1 (24px/600)
 4. **Subtitle** — Body 2 (16px/400), `color: rgba(0,0,0,0.55)`
-5. **Button Big Solid** — "फिर खेलें"
-6. **Button Big Hollow** — "होम पर जाएं"
+5. **Button Big Solid** — primary CTA
+6. **Button Big Hollow** — secondary CTA
 
 ### Result illustrations — semantic colors (NOT theme color)
 ```svg
@@ -450,14 +450,7 @@ All text uses `'Noto Sans', sans-serif` — never any other font.
 
 ---
 
-## 12. Language
-
-- All UI text in **Hindi** by default unless specified
-- Numbers always in **Western Arabic** (0–9), never Devanagari numerals
-
----
-
-## 14. Canvas Games — Key Patterns
+## 12. Canvas Games — Key Patterns
 
 For games using `<canvas>`:
 
@@ -488,7 +481,7 @@ Draw order (back to front):
 
 ---
 
-## 15. Mobile Considerations
+## 13. Mobile Considerations
 
 - `user-select: none` on body — prevents text selection during gameplay
 - `touch-action: none` on canvas — prevents scroll interference
@@ -499,7 +492,7 @@ Draw order (back to front):
 
 ---
 
-## 16. Common Mistakes to Avoid
+## 14. Common Mistakes to Avoid
 
 | ❌ Wrong | ✅ Correct |
 |----------|-----------|
@@ -510,8 +503,6 @@ Draw order (back to front):
 | Approximated icon paths | Exact paths from dls-icons.md |
 | Noto Sans Devanagari font | Noto Sans only (supports Devanagari natively) |
 | `transform="scale(N)"` on SVG paths | Native viewBox scaling only |
-| Manual "Next" button on quiz | Auto-advance after 1 second |
-| Numbers in Hindi script | Western Arabic numerals (0–9) always |
 | Adding extra buttons to Pause Popup | One CTA only |
 | White card background (`#fff`) on screens | Transparent cards — theme bg shows through |
 | Nav bar always `#FAE3B2` | Nav bar uses game's theme color |
@@ -521,7 +512,7 @@ Draw order (back to front):
 
 ---
 
-## 18. Custom Logo Pattern (High Contrast)
+## 15. Custom Logo Pattern (High Contrast)
 
 For game logos, use a **dark gradient background** to create strong contrast against
 the light theme background. This prevents the logo from blending into the page.
