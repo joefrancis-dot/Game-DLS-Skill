@@ -26,6 +26,8 @@ When building any screen or component, always compose it upward from these primi
 7. [Streak Counter](#7-streak-counter)
 8. [Streak Days (sub-component)](#8-streak-days-sub-component)
 9. [Bottom Options Pill](#9-bottom-options-pill)
+10. [Keyboard — Only Alphabets](#10-keyboard--only-alphabets)
+11. [Keyboard — With Back](#11-keyboard--with-back)
 
 ---
 
@@ -441,6 +443,104 @@ A circular pill button with an icon and a label below it. Used in game UIs for q
 
 ---
 
+## 10. Keyboard — Only Alphabets
+
+**Figma node:** `261:1058`
+
+A full QWERTY alphabetic keyboard for word-input games. No backspace key.
+
+**Structure:**
+- Container: `background: rgba(0,0,0,0.25)` (Tertiary), `padding: 8px`, `width: 360px`, `overflow: hidden`
+- 3 rows of keys (QWERTY layout):
+  - Row 1: Q W E R T Y U I O P — full width, no horizontal padding
+  - Row 2: A S D F G H J K L — `padding: 0 17px` (offset to centre)
+  - Row 3: Z X C V B N M — `padding: 0 52px` (further offset to centre)
+- Row height: `36px`, gap between rows: `8px`, gap between keys: `4px`
+
+**Key (Alphabet):**
+- Background: `#fff`
+- Border-radius: `8px`
+- Shadow: `0px 2px 0px 0px rgba(0,0,0,0.25)` (bottom press effect)
+- Padding: `5px 7px`
+- Font: Headline 3 / Button 1 (18px / 600 / 26px), color `#000`, centered
+- Each key: `flex: 1` — keys stretch equally within their row
+
+```css
+.keyboard {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px;
+  width: 360px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.keyboard__keys {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.keyboard__row {
+  display: flex;
+  gap: 4px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.keyboard__row--mid  { padding: 0 17px; }
+.keyboard__row--bot  { padding: 0 52px; }
+.key {
+  flex: 1;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.25);
+  padding: 5px 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+}
+```
+
+---
+
+## 11. Keyboard — With Back
+
+**Figma node:** `261:1059`
+
+Same QWERTY layout as above but the bottom row includes a **backspace key** on the right, replacing the wider padding offset. The bottom row horizontal padding is reduced to `0 26px` to accommodate the extra key.
+
+**Differences from Only Alphabets:**
+- Row 3: `padding: 0 26px` (instead of `0 52px`) — narrower offset to fit the back key
+- Backspace key sits at the right of row 3: white bg, `border-radius: 8px`, `min-width: 48px`, same shadow as alphabet keys. Contains the **Backspace icon** (`24×24px`, black) centred inside.
+
+```css
+/* Same .keyboard, .keyboard__keys, .keyboard__row, .key as above, plus: */
+.keyboard__row--bot-back { padding: 0 26px; }
+.key--back {
+  flex: 1;
+  min-width: 48px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.25);
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+/* Backspace icon inside .key--back: 24×24px, use Backspace icon from dls-icons.md */
+```
+
+---
+
 ## Quick Reference Summary
 
 | Component               | Node ID    | Background         | Border-radius | Key Font Style   |
@@ -459,6 +559,8 @@ A circular pill button with an icon and a label below it. Used in game UIs for q
 | Streak Counter          | 226:2146   | `#fff`             | 12px          | H3 (18px/600)    |
 | Streak Days             | 226:2203   | —                  | —             | Label (12px/600) |
 | Bottom Options Pill     | 226:2307   | `rgba(0,0,0,0.5)`  | 60px          | H5 (14px/600)    |
+| Keyboard (Only Alpha)   | 261:1058   | `rgba(0,0,0,0.25)` | 8px (keys)    | H3/B1 (18px/600) |
+| Keyboard (With Back)    | 261:1059   | `rgba(0,0,0,0.25)` | 8px (keys)    | H3/B1 (18px/600) |
 
 ---
 
@@ -488,4 +590,4 @@ When building any component, always resolve values to their DLS source token:
 
 ---
 
-*Last updated: Batch 1 — 14 UI components (Buttons, Nav Bar, Popup, Streak, Pills)*
+*Last updated: Batch 2 — 16 UI components (Buttons, Nav Bar, Popup, Streak, Pills, Keyboard)*
